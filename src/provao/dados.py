@@ -7,6 +7,7 @@ originais ficam em ``data/raw`` e não são versionados.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -29,9 +30,32 @@ COLUNAS_QUESTOES = [
     "enunciado",
     "alternativas_json",
     "alternativas_texto",
+    "apoio_visual",
     "pagina",
     "caderno",
 ]
+
+# Questões que dependem de figura, gráfico, mapa ou outro apoio visual do
+# caderno não podem ser respondidas apenas com o texto extraído. O simulado
+# usa esta marca para deixá-las de fora. A lista é deliberadamente ampla:
+# excluir um item a mais é menos prejudicial do que exibir uma questão sem o
+# gráfico necessário. "Figura do Estado" e "figura de linguagem" ficam fora.
+_APOIO_VISUAL = re.compile(
+    r"\b(?:figura(?:s)?\b(?!\s+(?:do|da|de)\b)"
+    r"|gr[aá]fico(?:s)?|tirinha(?:s)?|charge(?:s)?|cartum(?:s)?|mapa(?:s)?"
+    r"|esquema(?:s)?|diagrama(?:s)?|fotografia(?:s)?|foto(?:s)?"
+    r"|ilustra[cç][aã]o|ilustra[cç][oõ]es|infogr[aá]fico(?:s)?"
+    r"|histograma(?:s)?|maquete(?:s)?|fluxograma(?:s)?)\b"
+    r"|\bimagem\s+(?:a seguir|abaixo|acima|ao lado|mostrada|apresentada"
+    r"|ilustrada|reproduzida)\b",
+    re.IGNORECASE,
+)
+
+
+def _tem_apoio_visual(enunciado: str, alternativas_texto: str) -> bool:
+    if not isinstance(alternativas_texto, str) or not alternativas_texto.strip():
+        return True
+    return bool(_APOIO_VISUAL.search(str(enunciado)))
 
 
 def _chave(q: Questao) -> str:
@@ -58,6 +82,7 @@ def _questao_para_linha(q: Questao) -> dict:
         "enunciado": q.enunciado,
         "alternativas_json": json.dumps(q.alternativas, ensure_ascii=False),
         "alternativas_texto": alternativas_texto,
+        "apoio_visual": _tem_apoio_visual(q.enunciado, alternativas_texto),
         "pagina": q.pagina,
         "caderno": q.caderno,
     }
@@ -155,7 +180,16 @@ def salvar_processados(
 
 def carregar_questoes(pasta: Path | None = None) -> pd.DataFrame:
     pasta = pasta or PASTA_PROCESSADOS
-    return pd.read_csv(pasta / "questoes.csv.gz")
+    df = pd.read_csv(pasta / "questoes.csv.gz")
+    # Recalcula a marca para que mudanças na regra valham mesmo sem regerar
+    # todo o conjunto processado.
+    df["apoio_visual"] = [
+        _tem_apoio_visual(enunciado, alternativas)
+        for enunciado, alternativas in zip(
+            df["enunciado"], df["alternativas_texto"], strict=True
+        )
+    ]
+    return df
 
 
 def carregar_contextos(pasta: Path | None = None) -> pd.DataFrame:

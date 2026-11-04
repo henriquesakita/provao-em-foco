@@ -26,12 +26,13 @@ O projeto reúne os cadernos de **2023, 2024 e 2025**, os gabaritos oficiais e o
 | Componentes curriculares | 10 |
 | Questões com alternativas em texto | 783 |
 | Questões com alternativas apenas em imagem | 27 |
+| Questões disponíveis no simulado | 585 |
 | Ofertas de curso para 2027 | 1.835 |
 | Vagas publicadas por curso | 13.739 |
 | Vagas divulgadas no edital | 15.819 |
 | Instituições | 5 |
 | Municípios com oferta | 394 |
-| Questões inéditas autorais | 22 |
+| Questões de treino autorais | 22 |
 
 As **13.739 vagas** são as que aparecem detalhadas por curso nos Anexos VIII a XII. O edital informa ainda **2.080 vagas da FATEC para o 2º semestre de 2027**, que não estão discriminadas por curso no Anexo XII. Somadas, chegam às **15.819 vagas** divulgadas. O painel separa esses dois números para não dar a entender que todas as vagas já estão disponíveis para escolha.
 
@@ -43,11 +44,11 @@ As **13.739 vagas** são as que aparecem detalhadas por curso nos Anexos VIII a 
 
 **Banco de questões** — todos os 810 itens, com enunciado, alternativas, gabarito, tema e página do caderno. A busca textual e os filtros permitem montar recortes; o resultado pode ser baixado em CSV.
 
-**Simulado** — sorteio de questões reais com correção automática, aproveitamento e tabela de acertos por tema.
+**Simulado** — sorteio de questões reais respondíveis apenas com o texto, com correção automática, aproveitamento e tabela de acertos por tema.
 
-**Questões inéditas** — 22 questões autorais escritas a partir dos temas recorrentes, com resolução comentada.
+**Questões de treino** — 22 questões autorais escritas a partir dos temas recorrentes, com resolução comentada.
 
-**Vagas 2027** — totais por instituição, área e município, comparativo com as edições anteriores e consulta por curso, campus, turno e cidade.
+**Vagas** — totais por instituição, área e município, comparativo com as edições anteriores e consulta por curso, campus, turno e cidade.
 
 **Método e fontes** — decisões de extração, classificação, limitações e links para os documentos oficiais.
 
@@ -78,7 +79,7 @@ python -m pytest
 ruff check .
 ```
 
-A suíte cobre a extração, a taxonomia, o quadro de vagas e as questões inéditas. Os testes conferem, entre outros pontos, as 810 questões, os 90 itens por série em cada edição, os totais de vagas por instituição e a consistência dos arquivos processados.
+A suíte cobre a extração, a taxonomia, o quadro de vagas e as questões de treino. Os testes conferem, entre outros pontos, as 810 questões, os 90 itens por série em cada edição, os totais de vagas por instituição e a consistência dos arquivos processados.
 
 ## Como os dados foram construídos
 
@@ -124,7 +125,7 @@ Entre 2023 e 2026, o total cresceu 450 vagas (+2,9%). A UNIVESP respondeu por qu
 
 ### Limitações
 
-- **27 questões** têm alternativas apenas em imagem. Elas permanecem no banco, com a indicação da página do caderno, mas não entram no simulado.
+- **225 questões** dependem de algum apoio visual: 27 têm alternativas apenas em imagem e as demais citam figuras, gráficos, mapas ou esquemas. Todas permanecem no banco, com a indicação da página do caderno, mas não entram no simulado.
 - Em 2024 e 2025, Filosofia e Sociologia se alternam entre as séries; em 2023, as duas aparecem na mesma edição. Por isso a tabela de componentes por edição tem 86 combinações, e não 90.
 - As 2.080 vagas da FATEC para o 2º semestre de 2027 não estão detalhadas por curso no Anexo XII.
 - Localidades da capital paulista (Butantã, Ipiranga, Itaquera e outras) foram agrupadas no município de São Paulo para permitir a contagem por cidade.
@@ -170,7 +171,7 @@ src/provao/
 scripts/                   rotinas de construção e diagnósticos
 tests/                     testes automatizados
 data/processed/            bases derivadas, versionadas em gzip
-data/reference/            taxonomia, questões inéditas e textos de apoio
+data/reference/            taxonomia, questões de treino e textos de apoio
 docs/screenshots/          imagens usadas neste README
 ```
 

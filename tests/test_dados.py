@@ -52,6 +52,17 @@ def test_questoes_de_imagem_preservadas(questoes: pd.DataFrame) -> None:
     assert (sem_texto["pagina"] > 0).all()
 
 
+def test_apoio_visual_fora_do_simulado(questoes: pd.DataFrame) -> None:
+    assert questoes["apoio_visual"].dtype == bool
+    assert int(questoes["apoio_visual"].sum()) == 225
+    assert questoes.loc[questoes["alternativas_texto"].isna(), "apoio_visual"].all()
+
+    disponiveis = questoes[~questoes["apoio_visual"]]
+    assert len(disponiveis) == 585
+    assert disponiveis["alternativas_texto"].notna().all()
+    assert (disponiveis["alternativas_texto"].str.len() > 0).all()
+
+
 def test_chaves_unicas(questoes: pd.DataFrame) -> None:
     assert questoes["chave"].is_unique
 

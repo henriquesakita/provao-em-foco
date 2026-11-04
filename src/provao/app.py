@@ -336,6 +336,8 @@ def _cartao_questao(linha: pd.Series, contexto: str | None = None) -> None:
         f'<span class="qtag">{_html(linha["tema"])}</span>'
         f'<span class="qtag gray">Gabarito {linha["gabarito"]}</span>'
     )
+    if bool(linha.get("apoio_visual")):
+        tags += '<span class="qtag gray">Apoio visual no caderno</span>'
     corpo = (
         f'<div class="qbox"><div class="qmeta">{_html(meta)}</div>'
         f'<div style="margin:0.4rem 0 0.5rem 0">{tags}</div>'
@@ -394,7 +396,8 @@ def aba_banco(q: pd.DataFrame) -> None:
 
     st.caption(
         f"{fmt_int(len(recorte))} questões no recorte. "
-        "Itens com alternativas apenas em imagem continuam disponíveis, com a página do caderno."
+        "Itens com alternativas apenas em imagem ou que dependem de figuras, gráficos "
+        "e mapas continuam disponíveis, com a indicação da página do caderno."
     )
 
     por_pagina = 8
@@ -438,10 +441,15 @@ def aba_simulado(q: pd.DataFrame) -> None:
         "Monte uma prova rápida com questões reais e confira o gabarito ao final.",
     )
 
-    com_alternativas = q[q["alternativas_texto"].notna() & (q["alternativas_texto"] != "")]
+    com_alternativas = q[
+        q["alternativas_texto"].notna() & (q["alternativas_texto"].astype(str).str.strip() != "")
+    ]
+    disponiveis = com_alternativas[~com_alternativas["apoio_visual"]]
+    visuais = int(q["apoio_visual"].sum())
     st.caption(
-        f"{fmt_int(len(com_alternativas))} questões têm alternativas em texto e podem ser "
-        "usadas no simulado. As demais dependem de imagens do caderno."
+        f"{fmt_int(len(disponiveis))} questões podem ser usadas no simulado. "
+        f"Ficam de fora {fmt_int(visuais)} itens que dependem de figuras, gráficos, mapas "
+        "ou imagens do caderno — eles continuam no banco de questões, com a página indicada."
     )
 
     with st.form("configuracao_simulado"):
@@ -462,7 +470,7 @@ def aba_simulado(q: pd.DataFrame) -> None:
             st.warning("Selecione pelo menos um componente.")
         else:
             st.session_state["simulado_seed"] = st.session_state.get("simulado_seed", 0) + 1
-            sorteio = _sortear_simulado(com_alternativas, disciplinas, quantidade)
+            sorteio = _sortear_simulado(disponiveis, disciplinas, quantidade)
             st.session_state["simulado_chaves"] = list(sorteio["chave"])
             st.session_state.pop("simulado_resultado", None)
 
@@ -562,7 +570,7 @@ def aba_simulado(q: pd.DataFrame) -> None:
 
 def aba_ineditas() -> None:
     section(
-        "Questões inéditas",
+        "Questões de treino",
         "Itens autorais escritos a partir dos temas recorrentes, com resolução comentada.",
     )
 
@@ -869,8 +877,10 @@ def aba_metodo() -> None:
 
         ### Limitações
 
-        - **27 questões** têm alternativas apenas em imagem. Elas permanecem no
-          banco, com a página do caderno, mas não entram no simulado.
+        - **225 questões** dependem de algum apoio visual: 27 têm alternativas
+          apenas em imagem e as demais citam figuras, gráficos, mapas ou
+          esquemas. Todas permanecem no banco, com a página do caderno, mas não
+          entram no simulado.
         - Em 2024 e 2025, Filosofia e Sociologia se alternam entre as séries;
           em 2023, as duas aparecem na mesma edição. A comparação por disciplina
           considera essa diferença.
@@ -933,8 +943,8 @@ def main() -> None:
             "Temas",
             "Banco de questões",
             "Simulado",
-            "Questões inéditas",
-            "Vagas 2027",
+            "Questões de treino",
+            "Vagas",
             "Método e fontes",
         ]
     )
