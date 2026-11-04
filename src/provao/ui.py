@@ -117,9 +117,12 @@ def style_fig(fig: go.Figure, height: int = 390, showlegend: bool = True) -> go.
     fig.update_layout(
         template="plotly_white",
         height=height,
-        margin=dict(l=8, r=8, t=48, b=8),
+        # A legenda horizontal fica logo acima da área de plotagem; o título é
+        # fixado no topo da figura para que os dois não disputem o mesmo espaço.
+        margin=dict(l=8, r=8, t=72 if showlegend else 48, b=8),
+        title=dict(y=0.98, yref="container"),
         font=dict(family="Inter, sans-serif", size=12, color="#334155"),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0, title=None),
+        legend=dict(orientation="h", yanchor="bottom", y=1.0, x=0, title=None),
         showlegend=showlegend,
         hoverlabel=dict(bgcolor="white", font_size=12),
     )

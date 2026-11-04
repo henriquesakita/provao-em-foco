@@ -144,10 +144,10 @@ def aba_panorama(q: pd.DataFrame) -> None:
     colunas[3].metric("Componentes", fmt_int(q["disciplina"].nunique()))
 
     insight(
-        "Cada série responde a <strong>90 itens</strong>: 48 no primeiro dia e 42 no segundo. "
-        "Língua Portuguesa e Matemática concentram <strong>20 itens cada</strong> no primeiro "
+        "Língua Portuguesa e Matemática concentram <strong>20 itens cada</strong> — no primeiro "
         "e no segundo dia, respectivamente. Nos demais componentes, a quantidade varia entre "
-        "as edições — por isso a comparação de temas é feita dentro de cada disciplina."
+        "as edições; por isso a comparação de temas é feita dentro de cada disciplina, e não "
+        "entre cadernos."
     )
 
     section("Distribuição por componente")
@@ -165,23 +165,69 @@ def aba_panorama(q: pd.DataFrame) -> None:
     fig.update_layout(title="Questões por componente (2023–2025)", showlegend=False)
     st.plotly_chart(style_fig(fig, height=420, showlegend=False), width="stretch")
 
-    section("Composição dos cadernos")
-    comp = (
-        q.groupby(["ano", "serie", "dia"]).size().reset_index(name="questoes")
+    section(
+        "Composição dos cadernos",
+        "A divisão entre os dois dias é a mesma em todas as edições e séries.",
     )
-    comp["edicao"] = comp["ano"].astype(str) + " · " + comp["serie"].astype(str) + "ª série"
+    comp = q.groupby(["ano", "serie", "dia"]).size().reset_index(name="questoes")
     comp["dia"] = comp["dia"].map({1: "Dia 1", 2: "Dia 2"})
-    fig = px.bar(
-        comp,
-        x="edicao",
-        y="questoes",
-        color="dia",
-        barmode="stack",
-        color_discrete_map={"Dia 1": "#7c3aed", "Dia 2": "#f59e0b"},
-        labels={"edicao": "", "questoes": "Questões", "dia": ""},
-    )
-    fig.update_layout(title="Itens por caderno e dia de aplicação")
-    st.plotly_chart(style_fig(fig, height=380), width="stretch")
+    por_dia = comp.groupby("dia")["questoes"].agg(["min", "max"]).reset_index()
+    estavel = (por_dia["min"] == por_dia["max"]).all()
+
+    if estavel:
+        # Como os 18 cadernos têm exatamente a mesma composição, uma única
+        # barra representa todos eles — sem repetir nove barras idênticas.
+        cores_dia = {"Dia 1": "#7c3aed", "Dia 2": "#f59e0b"}
+        total_caderno = int(por_dia["max"].sum())
+        fig = go.Figure()
+        for _, linha in por_dia.iterrows():
+            quantidade = int(linha["max"])
+            fig.add_trace(
+                go.Bar(
+                    y=["Caderno"],
+                    x=[quantidade],
+                    orientation="h",
+                    width=0.6,
+                    name=linha["dia"],
+                    marker_color=cores_dia[linha["dia"]],
+                    text=f"{quantidade} itens · {linha['dia']}",
+                    textposition="inside",
+                    insidetextanchor="middle",
+                    textfont=dict(color="#ffffff", size=13),
+                    hovertemplate=f"{linha['dia']}: {quantidade} itens<extra></extra>",
+                )
+            )
+        fig.update_layout(barmode="stack", showlegend=False, bargap=0.25)
+        fig.update_xaxes(range=[0, total_caderno], visible=False)
+        fig.update_yaxes(visible=False)
+        grafico = style_fig(fig, height=130, showlegend=False)
+        grafico.update_layout(margin=dict(l=8, r=8, t=8, b=8))
+        st.plotly_chart(grafico, width="stretch")
+
+        dias = comp["dia"].nunique()
+        cadernos = comp.groupby(["ano", "serie"]).ngroups * dias
+        st.caption(
+            f"Estrutura idêntica nos {cadernos} cadernos do recorte "
+            f"({q['ano'].nunique()} edições × {q['serie'].nunique()} séries × {dias} dias): "
+            f"{total_caderno} itens por caderno e {fmt_int(len(q))} no total. Por isso a "
+            "composição aparece uma única vez, em vez de repetir a mesma barra em cada "
+            "ano e série."
+        )
+    else:
+        comp["edicao"] = (
+            comp["ano"].astype(str) + " · " + comp["serie"].astype(str) + "ª série"
+        )
+        fig = px.bar(
+            comp,
+            x="edicao",
+            y="questoes",
+            color="dia",
+            barmode="stack",
+            color_discrete_map={"Dia 1": "#7c3aed", "Dia 2": "#f59e0b"},
+            labels={"edicao": "", "questoes": "Questões", "dia": ""},
+        )
+        fig.update_layout(title="Itens por caderno e dia de aplicação")
+        st.plotly_chart(style_fig(fig, height=380), width="stretch")
 
     section("Temas mais frequentes no conjunto")
     top = _top_temas(q, 14).sort_values("total")
