@@ -47,7 +47,7 @@ As **13.739 vagas** são as que aparecem detalhadas por curso nos Anexos VIII a 
 
 **Questões inéditas** — 22 questões autorais escritas a partir dos temas recorrentes, com resolução comentada.
 
-**Vagas 2027** — totais por instituição, área e município, além de consulta por curso, campus, turno e cidade.
+**Vagas 2027** — totais por instituição, área e município, comparativo com as edições anteriores e consulta por curso, campus, turno e cidade.
 
 **Método e fontes** — decisões de extração, classificação, limitações e links para os documentos oficiais.
 
@@ -108,6 +108,19 @@ As vagas vêm dos Anexos VIII a XII do edital de 2026, que organiza o ingresso e
 | **Total** | **13.739** |
 
 A UNIVESP oferece vagas no 2º semestre de 2027. As demais instituições, no 1º semestre.
+
+### Vagas ao longo das edições
+
+O painel compara o total divulgado nos quatro editais. Os números seguem o dispositivo que abre a seção de vagas de cada edição e somam os dois semestres de ingresso; não são a soma dos quadros por curso, porque parte das vagas da FATEC é publicada apenas como total semestral.
+
+| Edição | Ingresso | USP | UNESP | UNICAMP | UNIVESP | FATEC | Total |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2023 | 2024 | 1.500 | 934 | 325 | 2.610 | 10.000 | **15.369** |
+| 2024 | 2025 | 1.490 | 934 | 325 | 2.631 | 10.000 | **15.380** |
+| 2025 | 2026 | 1.500 | 934 | 327 | 2.956 | 10.000 | **15.717** |
+| 2026 | 2027 | 1.500 | 929 | 326 | 3.064 | 10.000 | **15.819** |
+
+Entre 2023 e 2026, o total cresceu 450 vagas (+2,9%). A UNIVESP respondeu por quase todo o acréscimo (+454 vagas); as demais instituições ficaram praticamente estáveis.
 
 ### Limitações
 

@@ -29,7 +29,7 @@ from provao.ui import (
     section,
     style_fig,
 )
-from provao.vagas import carregar_vagas
+from provao.vagas import carregar_historico_vagas, carregar_vagas
 
 FONTE_EXAM = "https://provaopaulistaseriado.vunesp.com.br/"
 FONTE_EDITAL = "https://www.vunesp.com.br/SEED2602"
@@ -49,6 +49,14 @@ CORES = {
 
 DISCIPLINAS = list(CORES)
 
+CORES_INSTITUICOES = {
+    "USP": "#7c3aed",
+    "UNESP": "#2563eb",
+    "UNICAMP": "#059669",
+    "UNIVESP": "#f59e0b",
+    "FATEC": "#dc2626",
+}
+
 
 @st.cache_data(show_spinner=False)
 def _questoes() -> pd.DataFrame:
@@ -63,6 +71,11 @@ def _contextos() -> pd.DataFrame:
 @st.cache_data(show_spinner=False)
 def _vagas() -> pd.DataFrame:
     return carregar_vagas()
+
+
+@st.cache_data(show_spinner=False)
+def _historico_vagas() -> pd.DataFrame:
+    return carregar_historico_vagas()
 
 
 @st.cache_data(show_spinner=False)
@@ -580,7 +593,111 @@ def aba_ineditas() -> None:
             st.write(questao["comentario"])
 
 
-def aba_vagas(vagas: pd.DataFrame) -> None:
+def _comparativo_vagas(historico: pd.DataFrame) -> None:
+    section(
+        "Vagas ao longo das edições",
+        "Os totais divulgados nos quatro editais, com a composição por instituição.",
+    )
+
+    totais = (
+        historico.groupby(["edicao", "ingresso"], as_index=False)["vagas"]
+        .sum()
+        .sort_values("edicao")
+    )
+    totais["rotulo"] = (
+        totais["edicao"].astype(str) + " → " + totais["ingresso"].astype(str)
+    )
+    instituicoes = list(CORES_INSTITUICOES)
+
+    fig = go.Figure()
+    for instituicao in instituicoes:
+        dados = (
+            historico[historico["instituicao"] == instituicao]
+            .set_index("edicao")
+            .reindex(totais["edicao"])
+        )
+        fig.add_trace(
+            go.Bar(
+                x=totais["rotulo"],
+                y=dados["vagas"],
+                name=instituicao,
+                marker_color=CORES_INSTITUICOES[instituicao],
+                hovertemplate="%{x}<br>"
+                + instituicao
+                + ": %{y:,.0f} vagas<extra></extra>",
+            )
+        )
+    for rotulo, total in zip(totais["rotulo"], totais["vagas"], strict=True):
+        fig.add_annotation(
+            x=rotulo,
+            y=total,
+            text=fmt_int(total),
+            showarrow=False,
+            yshift=12,
+            font=dict(color="#1e1b4b", size=12),
+        )
+    fig.update_layout(
+        title="Vagas divulgadas por edição e instituição",
+        barmode="stack",
+        xaxis_title="Edição → ano de ingresso",
+        yaxis_title="Vagas",
+        yaxis=dict(range=[0, 17800]),
+    )
+    st.plotly_chart(style_fig(fig, height=440), width="stretch")
+
+    primeiro = int(totais.iloc[0]["vagas"])
+    ultimo = int(totais.iloc[-1]["vagas"])
+    acrescimo = ultimo - primeiro
+    percentual = f"{acrescimo / primeiro * 100:.1f}".replace(".", ",")
+    univesp = historico[historico["instituicao"] == "UNIVESP"].sort_values("edicao")
+    delta_univesp = int(univesp.iloc[-1]["vagas"] - univesp.iloc[0]["vagas"])
+    insight(
+        f"O total passou de <strong>{fmt_int(primeiro)}</strong> para "
+        f"<strong>{fmt_int(ultimo)}</strong> vagas entre as edições de 2023 e 2026 "
+        f"(<strong>+{fmt_int(acrescimo)}</strong>, ou +{percentual}%). "
+        f"A UNIVESP respondeu por <strong>+{fmt_int(delta_univesp)}</strong> vagas; "
+        "as demais instituições ficaram praticamente estáveis."
+    )
+
+    tabela = (
+        historico.pivot_table(
+            index=["edicao", "ingresso"],
+            columns="instituicao",
+            values="vagas",
+            aggfunc="sum",
+        )
+        .reset_index()
+        .sort_values("edicao")
+    )
+    for instituicao in instituicoes:
+        if instituicao not in tabela:
+            tabela[instituicao] = 0
+        tabela[instituicao] = tabela[instituicao].fillna(0).astype(int)
+    tabela["total"] = tabela[instituicoes].sum(axis=1)
+    tabela["variacao"] = tabela["total"].diff()
+
+    exibicao = pd.DataFrame(
+        {
+            "Edição": tabela["edicao"].astype(str),
+            "Ingresso": tabela["ingresso"].astype(str),
+        }
+    )
+    for instituicao in instituicoes:
+        exibicao[instituicao] = tabela[instituicao].map(fmt_int)
+    exibicao["Total"] = tabela["total"].map(fmt_int)
+    exibicao["Variação"] = [
+        "—" if pd.isna(valor) else f"{'+' if valor > 0 else ''}{fmt_int(valor)}"
+        for valor in tabela["variacao"]
+    ]
+    st.dataframe(exibicao, hide_index=True, width="stretch")
+    st.caption(
+        "Totais do dispositivo que abre a seção de vagas de cada edital, somando os dois "
+        "semestres de ingresso. Em 2026, a soma detalhada por curso chega a 13.739 porque "
+        "2.080 vagas da FATEC para o 2º semestre não aparecem discriminadas no Anexo XII."
+    )
+
+
+def aba_vagas(vagas: pd.DataFrame, historico: pd.DataFrame) -> None:
     section(
         "Vagas para ingresso em 2027",
         "Quadros publicados no edital do Provão Paulista Seriado 2026.",
@@ -611,12 +728,14 @@ def aba_vagas(vagas: pd.DataFrame) -> None:
         y="instituicao",
         orientation="h",
         color="instituicao",
-        color_discrete_sequence=px.colors.sequential.Purples_r,
+        color_discrete_map=CORES_INSTITUICOES,
         labels={"vagas_total": "Vagas", "instituicao": ""},
     )
     fig.update_traces(text="vagas_total", textposition="outside", cliponaxis=False)
     fig.update_layout(title="Vagas publicadas por instituição", showlegend=False)
     st.plotly_chart(style_fig(fig, height=360, showlegend=False), width="stretch")
+
+    _comparativo_vagas(historico)
 
     colunas = st.columns(2)
     with colunas[0]:
@@ -739,6 +858,15 @@ def aba_metodo() -> None:
         aproximação: servem para orientar o estudo, não para substituir a
         leitura do programa oficial.
 
+        ### As vagas ao longo das edições
+
+        O comparativo entre edições usa o total divulgado no dispositivo que
+        abre a seção de vagas de cada edital, e não a soma dos quadros por
+        curso. Essa escolha evita subestimar as edições em que parte das vagas
+        da FATEC foi publicada apenas como total semestral. Os números incluem
+        os dois semestres de ingresso e foram conferidos contra os textos
+        oficiais de 2023, 2024, 2025 e 2026.
+
         ### Limitações
 
         - **27 questões** têm alternativas apenas em imagem. Elas permanecem no
@@ -797,6 +925,7 @@ def main() -> None:
 
     q = _questoes()
     vagas = _vagas()
+    historico = _historico_vagas()
 
     abas = st.tabs(
         [
@@ -820,7 +949,7 @@ def main() -> None:
     with abas[4]:
         aba_ineditas()
     with abas[5]:
-        aba_vagas(vagas)
+        aba_vagas(vagas, historico)
     with abas[6]:
         aba_metodo()
 

@@ -10,6 +10,7 @@ contra o próprio edital.
 
 from __future__ import annotations
 
+import json
 import re
 import unicodedata
 from pathlib import Path
@@ -18,6 +19,7 @@ import pandas as pd
 
 RAIZ = Path(__file__).resolve().parents[2]
 EDITAL_PADRAO = RAIZ / "data" / "raw" / "2026" / "edital.txt"
+HISTORICO_PADRAO = RAIZ / "data" / "reference" / "vagas_historico.json"
 
 AREAS = [
     "Ciências Humanas e Artes",
@@ -433,3 +435,25 @@ def salvar_vagas(df: pd.DataFrame, destino: Path | None = None) -> Path:
 def carregar_vagas(caminho: Path | None = None) -> pd.DataFrame:
     caminho = caminho or RAIZ / "data" / "processed" / "vagas_2027.csv.gz"
     return pd.read_csv(caminho)
+
+
+def carregar_historico_vagas(caminho: Path | None = None) -> pd.DataFrame:
+    """Devolve o total divulgado por instituição em cada edição.
+
+    Os números seguem o dispositivo que abre a seção de vagas de cada edital,
+    e não a soma dos quadros por curso: parte das vagas da FATEC é divulgada
+    apenas como total semestral.
+    """
+    caminho = caminho or HISTORICO_PADRAO
+    dados = json.loads(caminho.read_text(encoding="utf-8"))
+    registros = [
+        {
+            "edicao": edicao["edicao"],
+            "ingresso": edicao["ingresso"],
+            "instituicao": instituicao,
+            "vagas": vagas,
+        }
+        for edicao in dados["edicoes"]
+        for instituicao, vagas in edicao["instituicoes"].items()
+    ]
+    return pd.DataFrame(registros, columns=["edicao", "ingresso", "instituicao", "vagas"])

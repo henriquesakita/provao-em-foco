@@ -1,0 +1,58 @@
+{
+  "descricao": "Total de vagas divulgadas em cada edição do Provão Paulista Seriado, conforme o dispositivo que abre a seção de vagas do respectivo edital.",
+  "observacao": "Os totais incluem as vagas dos dois semestres de ingresso. Parte das vagas da FATEC não é detalhada por curso nos anexos.",
+  "edicoes": [
+    {
+      "edicao": 2023,
+      "ingresso": 2024,
+      "fonte": "Edital de Participação do Provão Paulista Seriado 2023",
+      "url": "https://provaopaulistaseriado.vunesp.com.br/",
+      "instituicoes": {
+        "USP": 1500,
+        "UNESP": 934,
+        "UNICAMP": 325,
+        "UNIVESP": 2610,
+        "FATEC": 10000
+      }
+    },
+    {
+      "edicao": 2024,
+      "ingresso": 2025,
+      "fonte": "Edital nº 002/2024, de 22 de julho de 2024",
+      "url": "https://stcdndev.blob.core.windows.net/lib/SEED2405/Edital%20de%20Participa%C3%A7%C3%A3o.pdf",
+      "instituicoes": {
+        "USP": 1490,
+        "UNESP": 934,
+        "UNICAMP": 325,
+        "UNIVESP": 2631,
+        "FATEC": 10000
+      }
+    },
+    {
+      "edicao": 2025,
+      "ingresso": 2026,
+      "fonte": "Edital Seduc nº 4/2025, de 29 de julho de 2025",
+      "url": "https://stcdndev.blob.core.windows.net/lib/SEED2503/Edital%20n.4.2025%20-%20Abertura%20de%20Inscri%C3%A7%C3%B5es%20para%20o%20Prov%C3%A3o%20Paulista%20Seriado%202025.pdf",
+      "instituicoes": {
+        "USP": 1500,
+        "UNESP": 934,
+        "UNICAMP": 327,
+        "UNIVESP": 2956,
+        "FATEC": 10000
+      }
+    },
+    {
+      "edicao": 2026,
+      "ingresso": 2027,
+      "fonte": "Edital Seduc nº 10/2026, de 4 de agosto de 2026",
+      "url": "https://www.vunesp.com.br/SEED2602",
+      "instituicoes": {
+        "USP": 1500,
+        "UNESP": 929,
+        "UNICAMP": 326,
+        "UNIVESP": 3064,
+        "FATEC": 10000
+      }
+    }
+  ]
+}

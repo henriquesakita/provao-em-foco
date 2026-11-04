@@ -5,7 +5,7 @@ from __future__ import annotations
 import pandas as pd
 import pytest
 
-from provao.vagas import EDITAL_PADRAO, carregar_vagas
+from provao.vagas import EDITAL_PADRAO, carregar_historico_vagas, carregar_vagas
 
 TOTAIS = {
     "USP": 1500,
@@ -44,6 +44,23 @@ def test_sao_paulo_unificado(vagas: pd.DataFrame) -> None:
     capital = vagas[vagas["municipio"] == "São Paulo"]
     assert capital["vagas_total"].sum() > 2500
     assert not vagas["municipio"].str.startswith("São Paulo/").any()
+
+
+def test_historico_vagas_por_edicao() -> None:
+    historico = carregar_historico_vagas()
+    totais = historico.groupby("edicao")["vagas"].sum().to_dict()
+    assert totais == {2023: 15369, 2024: 15380, 2025: 15717, 2026: 15819}
+    assert set(historico["instituicao"]) == {"USP", "UNESP", "UNICAMP", "UNIVESP", "FATEC"}
+
+
+def test_historico_confere_com_quadros_de_2026(vagas: pd.DataFrame) -> None:
+    historico = carregar_historico_vagas()
+    atual = historico[historico["edicao"] == 2026].set_index("instituicao")["vagas"]
+    detalhado = vagas.groupby("instituicao")["vagas_total"].sum()
+    for instituicao in ("USP", "UNESP", "UNICAMP", "UNIVESP"):
+        assert atual[instituicao] == detalhado[instituicao]
+    assert atual["FATEC"] == 10000
+    assert detalhado["FATEC"] + 2080 == atual["FATEC"]
 
 
 @pytest.mark.skipif(not EDITAL_PADRAO.exists(), reason="edital bruto não disponível")
