@@ -1,0 +1,354 @@
+[
+  {
+    "id": "lp-01",
+    "disciplina": "Língua Portuguesa",
+    "tema": "Variação e norma",
+    "dificuldade": "Médio",
+    "enunciado": "Uma campanha de vacinação usou o slogan “A gente vai vacinar, sim!”. Parte do público considerou a frase inadequada para uma peça oficial. Sobre esse uso, é correto afirmar que",
+    "alternativas": {
+      "A": "a construção “a gente” é gramaticalmente incorreta em qualquer variedade do português.",
+      "B": "a construção é típica da modalidade oral e pode ser adequada em textos que buscam proximidade com o leitor, conforme o gênero e o público.",
+      "C": "a norma-padrão proíbe o uso de “a gente” apenas na escrita, mas o autoriza integralmente na fala.",
+      "D": "a crítica se justifica porque “a gente” não possui referente identificável no enunciado.",
+      "E": "a frase é incoerente, pois mistura, sem propósito, variedade culta e variedade popular."
+    },
+    "gabarito": "B",
+    "comentario": "A variedade linguística não é erro: a adequação depende do gênero, do suporte e do público. Em uma campanha, a aproximação com o leitor pode ser uma escolha consciente. O que se avalia é a pertinência da variedade ao contexto, não a existência de uma única forma correta."
+  },
+  {
+    "id": "lp-02",
+    "disciplina": "Língua Portuguesa",
+    "tema": "Figuras de linguagem",
+    "dificuldade": "Fácil",
+    "enunciado": "Em “O silêncio gritava na sala vazia”, a figura de linguagem predominante é",
+    "alternativas": {
+      "A": "metonímia, pois o silêncio substitui as pessoas presentes.",
+      "B": "hipérbole, pois há um exagero intencional na cena.",
+      "C": "personificação, pois se atribui ao silêncio uma ação humana.",
+      "D": "eufemismo, pois a cena é descrita de forma atenuada.",
+      "E": "antítese, pois silêncio e grito são ideias opostas."
+    },
+    "gabarito": "C",
+    "comentario": "A personificação (ou prosopopeia) atribui características ou ações humanas a seres inanimados. “Gritar” é uma ação humana transferida para o silêncio, o que reforça a tensão da cena."
+  },
+  {
+    "id": "lp-03",
+    "disciplina": "Língua Portuguesa",
+    "tema": "Sintaxe e coesão",
+    "dificuldade": "Fácil",
+    "enunciado": "Na frase “Os estudantes leram o edital e o comentaram em sala”, o pronome “o” retoma",
+    "alternativas": {
+      "A": "“Os estudantes”, que praticam as duas ações.",
+      "B": "“o edital”, que é o complemento do verbo comentar.",
+      "C": "“em sala”, que indica o lugar da ação.",
+      "D": "“leram”, que nomeia a primeira ação do período.",
+      "E": "“e”, que liga as duas orações coordenadas."
+    },
+    "gabarito": "B",
+    "comentario": "O pronome oblíquo “o” funciona como objeto direto e retoma o termo mais próximo compatível com o verbo “comentar”: o edital. A coesão referencial evita a repetição do substantivo."
+  },
+  {
+    "id": "mat-01",
+    "disciplina": "Matemática",
+    "tema": "Proporcionalidade e porcentagem",
+    "dificuldade": "Fácil",
+    "enunciado": "Um curso custava R$ 1.200,00 e teve um aumento de 15%. Na semana do estudante, o novo valor recebeu um desconto de 10%. O preço final do curso é",
+    "alternativas": {
+      "A": "R$ 1.200,00",
+      "B": "R$ 1.242,00",
+      "C": "R$ 1.260,00",
+      "D": "R$ 1.320,00",
+      "E": "R$ 1.380,00"
+    },
+    "gabarito": "B",
+    "comentario": "Após o aumento: 1.200 × 1,15 = 1.380. O desconto incide sobre esse novo valor: 1.380 × 0,90 = 1.242. Os percentuais não se cancelam porque são aplicados a bases diferentes."
+  },
+  {
+    "id": "mat-02",
+    "disciplina": "Matemática",
+    "tema": "Probabilidade",
+    "dificuldade": "Médio",
+    "enunciado": "Uma urna contém 5 bolas vermelhas e 3 bolas azuis. Duas bolas são retiradas, sem reposição. A probabilidade de que ambas sejam vermelhas é",
+    "alternativas": {
+      "A": "5/16",
+      "B": "5/14",
+      "C": "25/64",
+      "D": "3/14",
+      "E": "3/8"
+    },
+    "gabarito": "B",
+    "comentario": "A primeira retirada tem probabilidade 5/8 de ser vermelha. Como não há reposição, restam 7 bolas, das quais 4 são vermelhas: 4/7. Logo, 5/8 × 4/7 = 20/56 = 5/14."
+  },
+  {
+    "id": "mat-03",
+    "disciplina": "Matemática",
+    "tema": "Geometria plana",
+    "dificuldade": "Fácil",
+    "enunciado": "Um trapézio tem bases medindo 12 cm e 8 cm e altura de 5 cm. A área desse trapézio é",
+    "alternativas": {
+      "A": "20 cm²",
+      "B": "40 cm²",
+      "C": "50 cm²",
+      "D": "60 cm²",
+      "E": "100 cm²"
+    },
+    "gabarito": "C",
+    "comentario": "A área do trapézio é dada por A = (B + b) × h / 2. Substituindo: (12 + 8) × 5 / 2 = 20 × 5 / 2 = 50 cm²."
+  },
+  {
+    "id": "bio-01",
+    "disciplina": "Biologia",
+    "tema": "Genética e biotecnologia",
+    "dificuldade": "Fácil",
+    "enunciado": "No cruzamento entre duas plantas heterozigotas (Aa), com dominância completa, a proporção fenotípica esperada na descendência é",
+    "alternativas": {
+      "A": "1:1",
+      "B": "1:2:1",
+      "C": "3:1",
+      "D": "9:3:3:1",
+      "E": "2:1"
+    },
+    "gabarito": "C",
+    "comentario": "O cruzamento Aa × Aa gera 1 AA : 2 Aa : 1 aa. Como o alelo A é dominante, os genótipos AA e Aa expressam o mesmo fenótipo, resultando em 3 dominantes para 1 recessivo."
+  },
+  {
+    "id": "bio-02",
+    "disciplina": "Biologia",
+    "tema": "Ecologia e meio ambiente",
+    "dificuldade": "Médio",
+    "enunciado": "Em uma cadeia alimentar, a quantidade de energia disponível diminui a cada nível trófico. Isso ocorre principalmente porque",
+    "alternativas": {
+      "A": "os predadores consomem apenas parte dos organismos disponíveis.",
+      "B": "parte da energia é dissipada como calor nos processos metabólicos.",
+      "C": "os produtores absorvem toda a energia solar disponível no ambiente.",
+      "D": "a matéria orgânica não pode ser transferida entre níveis tróficos.",
+      "E": "os decompositores impedem a circulação de energia entre os níveis."
+    },
+    "gabarito": "B",
+    "comentario": "A transferência de energia entre níveis tróficos é ineficiente. Boa parte é usada no metabolismo e dissipada como calor, além de haver perdas em fezes e partes não consumidas. Por isso as pirâmides de energia são sempre decrescentes."
+  },
+  {
+    "id": "fis-01",
+    "disciplina": "Física",
+    "tema": "Cinemática",
+    "dificuldade": "Fácil",
+    "enunciado": "Um ônibus percorre 120 km em 2 horas e, em seguida, mais 60 km em 1 hora. A velocidade média no percurso total é",
+    "alternativas": {
+      "A": "50 km/h",
+      "B": "60 km/h",
+      "C": "70 km/h",
+      "D": "80 km/h",
+      "E": "90 km/h"
+    },
+    "gabarito": "B",
+    "comentario": "A velocidade média considera a distância total e o tempo total: (120 + 60) km / (2 + 1) h = 180 / 3 = 60 km/h. Não é a média das velocidades de cada trecho."
+  },
+  {
+    "id": "fis-02",
+    "disciplina": "Física",
+    "tema": "Eletrodinâmica",
+    "dificuldade": "Fácil",
+    "enunciado": "Um resistor de 20 Ω está submetido a uma diferença de potencial de 12 V. A corrente elétrica que o atravessa é",
+    "alternativas": {
+      "A": "0,2 A",
+      "B": "0,6 A",
+      "C": "1,2 A",
+      "D": "2,4 A",
+      "E": "6,0 A"
+    },
+    "gabarito": "B",
+    "comentario": "Pela primeira lei de Ohm, U = R × i. Assim, i = U / R = 12 / 20 = 0,6 A."
+  },
+  {
+    "id": "qui-01",
+    "disciplina": "Química",
+    "tema": "Transformações e estequiometria",
+    "dificuldade": "Médio",
+    "enunciado": "Na combustão completa de 1 mol de metano (CH₄), a quantidade de oxigênio consumida é",
+    "alternativas": {
+      "A": "0,5 mol",
+      "B": "1 mol",
+      "C": "2 mols",
+      "D": "3 mols",
+      "E": "4 mols"
+    },
+    "gabarito": "C",
+    "comentario": "A equação balanceada é CH₄ + 2 O₂ → CO₂ + 2 H₂O. A proporção é de 1 mol de metano para 2 mols de oxigênio."
+  },
+  {
+    "id": "qui-02",
+    "disciplina": "Química",
+    "tema": "Soluções",
+    "dificuldade": "Fácil",
+    "enunciado": "Para preparar 500 mL de uma solução de NaCl com concentração 0,2 mol/L, a quantidade de soluto necessária é",
+    "alternativas": {
+      "A": "0,05 mol",
+      "B": "0,10 mol",
+      "C": "0,20 mol",
+      "D": "0,40 mol",
+      "E": "1,00 mol"
+    },
+    "gabarito": "B",
+    "comentario": "A concentração em mol/L é n / V, com o volume em litros. Como 500 mL = 0,5 L, temos n = 0,2 × 0,5 = 0,10 mol."
+  },
+  {
+    "id": "his-01",
+    "disciplina": "História",
+    "tema": "Brasil República",
+    "dificuldade": "Médio",
+    "enunciado": "Durante o Estado Novo (1937-1945), o governo de Getúlio Vargas caracterizou-se por",
+    "alternativas": {
+      "A": "ampliação do federalismo e autonomia dos estados.",
+      "B": "centralização do poder, censura e intervenção do Estado na economia.",
+      "C": "eliminação da legislação trabalhista e repressão aos sindicatos.",
+      "D": "abertura política permanente e eleições diretas para a presidência.",
+      "E": "alinhamento exclusivo com a União Soviética durante a Segunda Guerra."
+    },
+    "gabarito": "B",
+    "comentario": "O Estado Novo foi um período autoritário marcado pela centralização política, pelo controle dos meios de comunicação e pela forte intervenção estatal na economia. A legislação trabalhista foi ampliada, mas dentro de um modelo corporativista e controlado pelo Estado."
+  },
+  {
+    "id": "his-02",
+    "disciplina": "História",
+    "tema": "Mundo Contemporâneo",
+    "dificuldade": "Médio",
+    "enunciado": "A Guerra Fria foi marcada pela bipolaridade entre Estados Unidos e União Soviética. Uma característica desse período foi",
+    "alternativas": {
+      "A": "o confronto militar direto entre as duas superpotências em território europeu.",
+      "B": "a corrida armamentista e a disputa por áreas de influência, sem guerra direta entre as superpotências.",
+      "C": "a extinção dos blocos econômicos e a integração imediata da Europa.",
+      "D": "o fim das disputas ideológicas após a Segunda Guerra Mundial.",
+      "E": "a aliança permanente entre Estados Unidos e União Soviética contra a China."
+    },
+    "gabarito": "B",
+    "comentario": "A Guerra Fria foi um conflito indireto: as superpotências evitaram o confronto militar direto, mas disputaram influência por meio de alianças, propaganda, corrida nuclear e guerras localizadas."
+  },
+  {
+    "id": "geo-01",
+    "disciplina": "Geografia",
+    "tema": "Clima e mudanças climáticas",
+    "dificuldade": "Médio",
+    "enunciado": "O fenômeno das ilhas de calor urbanas é explicado principalmente pela",
+    "alternativas": {
+      "A": "maior altitude das áreas centrais das cidades.",
+      "B": "impermeabilização do solo e redução da vegetação, que elevam a temperatura local.",
+      "C": "diminuição da concentração de gases do efeito estufa nas cidades.",
+      "D": "aproximação das cidades de áreas polares.",
+      "E": "redução da emissão de calor por veículos e indústrias."
+    },
+    "gabarito": "B",
+    "comentario": "A substituição de áreas verdes por asfalto e concreto reduz a evapotranspiração e aumenta a absorção de calor. Somam-se a isso a densidade de construções e a emissão de calor por veículos e indústrias, o que eleva a temperatura nas áreas urbanas."
+  },
+  {
+    "id": "geo-02",
+    "disciplina": "Geografia",
+    "tema": "Cartografia",
+    "dificuldade": "Fácil",
+    "enunciado": "Em um mapa de escala 1:50.000, uma distância de 4 cm no papel corresponde, no terreno, a",
+    "alternativas": {
+      "A": "0,5 km",
+      "B": "1 km",
+      "C": "2 km",
+      "D": "5 km",
+      "E": "20 km"
+    },
+    "gabarito": "C",
+    "comentario": "A escala 1:50.000 indica que 1 cm no mapa equivale a 50.000 cm no terreno. Assim, 4 cm correspondem a 200.000 cm, ou 2 km (já que 1 km = 100.000 cm)."
+  },
+  {
+    "id": "fil-01",
+    "disciplina": "Filosofia",
+    "tema": "Ética e bioética",
+    "dificuldade": "Médio",
+    "enunciado": "Para Immanuel Kant, uma ação tem valor moral quando é praticada",
+    "alternativas": {
+      "A": "conforme as consequências positivas que produz para a maioria.",
+      "B": "por dever, segundo uma máxima que possa ser universalizada.",
+      "C": "de acordo com a tradição e os costumes da comunidade.",
+      "D": "por interesse pessoal, desde que respeite a lei civil.",
+      "E": "por impulso natural e espontâneo, sem reflexão."
+    },
+    "gabarito": "B",
+    "comentario": "Na ética kantiana, o valor moral não está nas consequências, mas na intenção de agir por dever. O imperativo categórico exige que a máxima da ação possa ser universalizada sem contradição."
+  },
+  {
+    "id": "fil-02",
+    "disciplina": "Filosofia",
+    "tema": "Epistemologia",
+    "dificuldade": "Médio",
+    "enunciado": "A formulação “Penso, logo existo”, de René Descartes, expressa",
+    "alternativas": {
+      "A": "a prova da existência de Deus a partir da natureza.",
+      "B": "a primeira certeza indubitável obtida após a dúvida metódica.",
+      "C": "a defesa de que todo conhecimento vem da experiência sensível.",
+      "D": "a negação da possibilidade de qualquer conhecimento verdadeiro.",
+      "E": "a ideia de que a razão depende das paixões humanas."
+    },
+    "gabarito": "B",
+    "comentario": "Descartes submete todo conhecimento à dúvida metódica. Mesmo duvidando de tudo, não pode duvidar de que pensa; pensar é condição da existência do sujeito. Daí a certeza inaugural do cogito."
+  },
+  {
+    "id": "soc-01",
+    "disciplina": "Sociologia",
+    "tema": "Indivíduo e identidade",
+    "dificuldade": "Médio",
+    "enunciado": "Para Émile Durkheim, os fatos sociais são caracterizados por",
+    "alternativas": {
+      "A": "subjetividade, espontaneidade e ausência de regras.",
+      "B": "exterioridade, coercitividade e generalidade.",
+      "C": "origem individual e livre escolha racional.",
+      "D": "transformação permanente e impossibilidade de observação.",
+      "E": "exclusiva dimensão econômica e ausência de sanções."
+    },
+    "gabarito": "B",
+    "comentario": "Durkheim define os fatos sociais como maneiras de agir, pensar e sentir exteriores ao indivíduo, capazes de exercer coerção e presentes de forma geral na sociedade. Essa definição é central para o projeto de uma sociologia científica."
+  },
+  {
+    "id": "soc-02",
+    "disciplina": "Sociologia",
+    "tema": "Trabalho e classes sociais",
+    "dificuldade": "Médio",
+    "enunciado": "Para Karl Marx, a alienação do trabalho ocorre quando",
+    "alternativas": {
+      "A": "o trabalhador recebe um salário acima do valor de sua produção.",
+      "B": "o trabalhador não se reconhece no produto do seu trabalho nem controla o processo produtivo.",
+      "C": "o Estado garante ao trabalhador a propriedade dos meios de produção.",
+      "D": "o trabalho é realizado de forma livre e cooperativa.",
+      "E": "a produção artesanal substitui a produção industrial."
+    },
+    "gabarito": "B",
+    "comentario": "Na leitura marxiana, a alienação resulta da separação entre o trabalhador e os meios de produção, o produto e o próprio processo de trabalho. O trabalhador vende sua força de trabalho e não controla aquilo que produz."
+  },
+  {
+    "id": "ing-01",
+    "disciplina": "Língua Inglesa",
+    "tema": "Compreensão global",
+    "dificuldade": "Fácil",
+    "enunciado": "Read the text. Many students believe that studying more hours is always the best strategy. However, research on learning suggests that spaced practice and self-testing improve long-term retention more than simply rereading notes. The main idea of the text is that",
+    "alternativas": {
+      "A": "students should study only at night.",
+      "B": "the number of study hours is the only factor that matters.",
+      "C": "how students study can matter more than how long they study.",
+      "D": "rereading notes is the most effective study method.",
+      "E": "self-testing should be avoided before exams."
+    },
+    "gabarito": "C",
+    "comentario": "O texto contrapõe a ideia de que estudar mais horas é sempre melhor à evidência de que práticas espaçadas e testes de recuperação melhoram a retenção. A ideia central é a importância do método de estudo."
+  },
+  {
+    "id": "ing-02",
+    "disciplina": "Língua Inglesa",
+    "tema": "Vocabulário e expressões",
+    "dificuldade": "Médio",
+    "enunciado": "In the sentence “spaced practice and self-testing improve long-term retention”, the word “retention” is closest in meaning to",
+    "alternativas": {
+      "A": "the ability to forget information quickly.",
+      "B": "the ability to remember information over time.",
+      "C": "the speed of reading a text.",
+      "D": "the amount of time spent studying.",
+      "E": "the difficulty of an examination."
+    },
+    "gabarito": "B",
+    "comentario": "No contexto de aprendizagem, “retention” refere-se à retenção de informações, isto é, à capacidade de lembrar o que foi estudado ao longo do tempo."
+  }
+]

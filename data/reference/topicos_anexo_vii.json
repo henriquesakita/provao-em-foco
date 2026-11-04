@@ -1,0 +1,776 @@
+{
+  "I": {
+    "Língua Portuguesa": [
+      {
+        "n": 1,
+        "titulo": "Funcionamento social da língua"
+      },
+      {
+        "n": 2,
+        "titulo": "Morfossintaxe"
+      },
+      {
+        "n": 3,
+        "titulo": "Processos sintático-semânticos"
+      },
+      {
+        "n": 4,
+        "titulo": "Compreensão, interpretação e produção de textos de gêneros variados e de diversas mídias (impressas,"
+      },
+      {
+        "n": 5,
+        "titulo": "Literatura brasileira"
+      },
+      {
+        "n": 6,
+        "titulo": "Literatura portuguesa"
+      }
+    ],
+    "Língua Inglesa": [
+      {
+        "n": 1,
+        "titulo": "Compreensão do sentido geral e/ou do propósito do texto, bem como a identificação de seu gênero textual."
+      },
+      {
+        "n": 2,
+        "titulo": "Compreensão de ideias expressas em trechos, frases e parágrafos, e/ou de sua relação com ideias presentes em"
+      },
+      {
+        "n": 3,
+        "titulo": "Localização de informação específica em um ou mais trechos do texto."
+      },
+      {
+        "n": 4,
+        "titulo": "Compreensão da relação entre conteúdos de diferentes textos, ou das relações entre imagens, tabelas, infográficos"
+      },
+      {
+        "n": 5,
+        "titulo": "Compreensão crítica de textos: discriminação entre fato e opinião; reconhecimento de posicionamentos, crenças ou"
+      },
+      {
+        "n": 6,
+        "titulo": "Identificação do significado de itens lexicais (palavras ou expressões) fundamentais para a adequada compreensão"
+      }
+    ],
+    "Matemática": [
+      {
+        "n": 1,
+        "titulo": "Conjuntos numéricos"
+      },
+      {
+        "n": 2,
+        "titulo": "Funções"
+      },
+      {
+        "n": 3,
+        "titulo": "Geometria plana"
+      },
+      {
+        "n": 4,
+        "titulo": "Tratamento da informação"
+      },
+      {
+        "n": 5,
+        "titulo": "Sistemas de Medidas"
+      }
+    ],
+    "Química": [
+      {
+        "n": 1,
+        "titulo": "Materiais: uso e propriedades"
+      },
+      {
+        "n": 2,
+        "titulo": "Transformações químicas: evidências, representações e aspectos quantitativos"
+      },
+      {
+        "n": 3,
+        "titulo": "Funções inorgânicas"
+      },
+      {
+        "n": 4,
+        "titulo": "Química e meio ambiente"
+      },
+      {
+        "n": 5,
+        "titulo": "O átomo isolado e sua estrutura"
+      },
+      {
+        "n": 6,
+        "titulo": "O átomo ligado: tipos de ligações e substâncias químicas"
+      },
+      {
+        "n": 7,
+        "titulo": "Polaridade e interações entre moléculas"
+      },
+      {
+        "n": 8,
+        "titulo": "Água e soluções aquosas"
+      }
+    ],
+    "Física": [
+      {
+        "n": 1,
+        "titulo": "Cinemática."
+      },
+      {
+        "n": 2,
+        "titulo": "Movimento e as leis de Newton."
+      },
+      {
+        "n": 3,
+        "titulo": "Gravitação newtoniana."
+      },
+      {
+        "n": 4,
+        "titulo": "Trabalho e energia."
+      }
+    ],
+    "Biologia": [
+      {
+        "n": 1,
+        "titulo": "Os seres vivos no ambiente"
+      },
+      {
+        "n": 2,
+        "titulo": "Estudo químico e celular dos seres vivos, reprodução, desenvolvimento e metabolismo energético"
+      },
+      {
+        "n": 3,
+        "titulo": "Níveis de organização dos seres vivos, classificação biológica dos seres vivos"
+      },
+      {
+        "n": 4,
+        "titulo": "Biologia das plantas e dos animais"
+      },
+      {
+        "n": 5,
+        "titulo": "Hereditariedade"
+      },
+      {
+        "n": 6,
+        "titulo": "Origem e evolução da vida"
+      },
+      {
+        "n": 7,
+        "titulo": "Investigação científica"
+      }
+    ],
+    "História": [
+      {
+        "n": 1,
+        "titulo": "Antiguidade Clássica"
+      },
+      {
+        "n": 2,
+        "titulo": "Período Medieval"
+      },
+      {
+        "n": 3,
+        "titulo": "Mundo Moderno"
+      },
+      {
+        "n": 4,
+        "titulo": "Os primeiros habitantes"
+      },
+      {
+        "n": 5,
+        "titulo": "Conquista e colonização portuguesa"
+      },
+      {
+        "n": 6,
+        "titulo": "Brasil República"
+      }
+    ],
+    "Geografia": [
+      {
+        "n": 1,
+        "titulo": "Os espaços mundial e brasileiro"
+      },
+      {
+        "n": 2,
+        "titulo": "As grandes paisagens naturais da Terra e a questão ambiental"
+      },
+      {
+        "n": 3,
+        "titulo": "A cartografia sistemática, temática e suas tecnologias"
+      }
+    ],
+    "Filosofia": [
+      {
+        "n": 1,
+        "titulo": "Filosofia e visões de mundo"
+      },
+      {
+        "n": 2,
+        "titulo": "Epistemologia"
+      },
+      {
+        "n": 3,
+        "titulo": "Ética"
+      },
+      {
+        "n": 4,
+        "titulo": "Filosofia política"
+      }
+    ]
+  },
+  "II": {
+    "Língua Portuguesa": [
+      {
+        "n": 1,
+        "titulo": "Funcionamento social da língua"
+      },
+      {
+        "n": 2,
+        "titulo": "Morfossintaxe"
+      },
+      {
+        "n": 3,
+        "titulo": "Processos sintático-semânticos"
+      },
+      {
+        "n": 4,
+        "titulo": "Compreensão, interpretação e produção de textos de gêneros variados e de diversas mídias (impressas,"
+      },
+      {
+        "n": 5,
+        "titulo": "Literatura brasileira"
+      },
+      {
+        "n": 6,
+        "titulo": "Literatura portuguesa"
+      }
+    ],
+    "Língua Inglesa": [
+      {
+        "n": 1,
+        "titulo": "Compreensão do sentido geral e/ou do propósito do texto, bem como a identificação de seu gênero textual."
+      },
+      {
+        "n": 2,
+        "titulo": "Compreensão de ideias expressas em trechos, frases e parágrafos, e/ou de sua relação com ideias presentes em"
+      },
+      {
+        "n": 3,
+        "titulo": "Localização de informação específica em um ou mais trechos do texto."
+      },
+      {
+        "n": 4,
+        "titulo": "Identificação da referência textual de elementos de coesão tais como pronomes, advérbios, sinonímias, entre outros."
+      },
+      {
+        "n": 5,
+        "titulo": "Compreensão da relação entre conteúdos de diferentes textos, ou das relações entre imagens, tabelas, infográficos"
+      },
+      {
+        "n": 6,
+        "titulo": "Compreensão crítica de textos: discriminação entre fato e opinião; reconhecimento de posicionamentos, crenças ou"
+      },
+      {
+        "n": 7,
+        "titulo": "Identificação do significado de itens lexicais (palavras ou expressões) fundamentais para a adequada compreensão"
+      }
+    ],
+    "Matemática": [
+      {
+        "n": 1,
+        "titulo": "Conjuntos numéricos"
+      },
+      {
+        "n": 2,
+        "titulo": "Funções"
+      },
+      {
+        "n": 3,
+        "titulo": "Geometria plana"
+      },
+      {
+        "n": 4,
+        "titulo": "Geometria espacial"
+      },
+      {
+        "n": 5,
+        "titulo": "Tratamento da informação"
+      },
+      {
+        "n": 6,
+        "titulo": "Sistemas de Medidas"
+      }
+    ],
+    "Química": [
+      {
+        "n": 1,
+        "titulo": "Transformações químicas: evidências, representações e aspectos quantitativos"
+      },
+      {
+        "n": 2,
+        "titulo": "Química e meio ambiente"
+      },
+      {
+        "n": 3,
+        "titulo": "Transformações químicas: um processo dinâmico"
+      },
+      {
+        "n": 4,
+        "titulo": "Transformações de substâncias químicas e energia"
+      },
+      {
+        "n": 5,
+        "titulo": "Estudo dos compostos de carbono"
+      }
+    ],
+    "Física": [
+      {
+        "n": 1,
+        "titulo": "Termometria."
+      },
+      {
+        "n": 2,
+        "titulo": "Calorimetria."
+      },
+      {
+        "n": 3,
+        "titulo": "Propagação de calor."
+      },
+      {
+        "n": 4,
+        "titulo": "Gases."
+      },
+      {
+        "n": 5,
+        "titulo": "Termodinâmica."
+      },
+      {
+        "n": 6,
+        "titulo": "Princípios da óptica geométrica"
+      },
+      {
+        "n": 7,
+        "titulo": "Reflexão da luz e formação de imagem."
+      },
+      {
+        "n": 8,
+        "titulo": "Refração luminosa."
+      },
+      {
+        "n": 9,
+        "titulo": "Ondulatória"
+      }
+    ],
+    "Biologia": [
+      {
+        "n": 1,
+        "titulo": "Os seres vivos no ambiente"
+      },
+      {
+        "n": 2,
+        "titulo": "Estudo químico e celular dos seres vivos, reprodução, desenvolvimento e metabolismo energético"
+      },
+      {
+        "n": 3,
+        "titulo": "Níveis de organização dos seres vivos, classificação biológica dos seres vivos"
+      },
+      {
+        "n": 4,
+        "titulo": "Biologia das plantas e dos animais"
+      },
+      {
+        "n": 5,
+        "titulo": "Hereditariedade"
+      }
+    ],
+    "História": [
+      {
+        "n": 1,
+        "titulo": "Mundo Moderno"
+      },
+      {
+        "n": 2,
+        "titulo": "Mundo Contemporâneo"
+      },
+      {
+        "n": 3,
+        "titulo": "Estados Unidos e América Latina: diálogos e tensões"
+      },
+      {
+        "n": 4,
+        "titulo": "Conquista e colonização portuguesa"
+      },
+      {
+        "n": 5,
+        "titulo": "Brasil Imperial"
+      },
+      {
+        "n": 6,
+        "titulo": "Brasil República"
+      }
+    ],
+    "Geografia": [
+      {
+        "n": 1,
+        "titulo": "Os espaços mundial e brasileiro"
+      },
+      {
+        "n": 2,
+        "titulo": "As grandes paisagens naturais da Terra e a questão ambiental"
+      },
+      {
+        "n": 3,
+        "titulo": "A cartografia sistemática, temática e suas tecnologias"
+      }
+    ],
+    "Sociologia": [
+      {
+        "n": 1,
+        "titulo": "O indivíduo e a sociedade"
+      },
+      {
+        "n": 2,
+        "titulo": "A sociedade e o trabalho"
+      },
+      {
+        "n": 3,
+        "titulo": "A sociedade e a cultura"
+      },
+      {
+        "n": 4,
+        "titulo": "A sociedade e o Estado"
+      },
+      {
+        "n": 5,
+        "titulo": "A sociedade brasileira"
+      }
+    ]
+  },
+  "III": {
+    "Língua Portuguesa": [
+      {
+        "n": 1,
+        "titulo": "Funcionamento social da língua"
+      },
+      {
+        "n": 2,
+        "titulo": "Morfossintaxe"
+      },
+      {
+        "n": 3,
+        "titulo": "Processos sintático-semânticos"
+      },
+      {
+        "n": 4,
+        "titulo": "Compreensão, interpretação e produção de textos de gêneros variados e de diversas mídias (impressas,"
+      },
+      {
+        "n": 5,
+        "titulo": "Literatura brasileira"
+      },
+      {
+        "n": 6,
+        "titulo": "Literatura portuguesa"
+      }
+    ],
+    "Língua Inglesa": [
+      {
+        "n": 1,
+        "titulo": "Compreensão do sentido geral e/ou do propósito do texto, bem como a identificação de seu gênero textual."
+      },
+      {
+        "n": 2,
+        "titulo": "Compreensão de ideias expressas em trechos, frases e parágrafos, e/ou de sua relação com ideias presentes em"
+      },
+      {
+        "n": 3,
+        "titulo": "Localização de informação específica em um ou mais trechos do texto."
+      },
+      {
+        "n": 4,
+        "titulo": "Compreensão da relação entre conteúdos de diferentes textos, ou das relações entre imagens, tabelas, infográficos"
+      },
+      {
+        "n": 5,
+        "titulo": "Compreensão crítica de textos: discriminação entre fato e opinião; reconhecimento de posicionamentos, crenças ou"
+      },
+      {
+        "n": 6,
+        "titulo": "Identificação do significado de itens lexicais (palavras ou expressões) fundamentais para a adequada compreensão"
+      }
+    ],
+    "Matemática": [
+      {
+        "n": 1,
+        "titulo": "Conjuntos numéricos"
+      },
+      {
+        "n": 2,
+        "titulo": "Análise combinatória"
+      },
+      {
+        "n": 3,
+        "titulo": "Probabilidade"
+      },
+      {
+        "n": 4,
+        "titulo": "Sistemas lineares"
+      },
+      {
+        "n": 5,
+        "titulo": "Funções"
+      },
+      {
+        "n": 6,
+        "titulo": "Trigonometria"
+      },
+      {
+        "n": 7,
+        "titulo": "Geometria plana"
+      },
+      {
+        "n": 8,
+        "titulo": "Geometria espacial"
+      },
+      {
+        "n": 9,
+        "titulo": "Tratamento da informação"
+      },
+      {
+        "n": 10,
+        "titulo": "Sistemas de Medidas"
+      }
+    ],
+    "Química": [
+      {
+        "n": 1,
+        "titulo": "Materiais: uso e propriedades"
+      },
+      {
+        "n": 2,
+        "titulo": "Transformações químicas: evidências, representações e aspectos quantitativos"
+      },
+      {
+        "n": 3,
+        "titulo": "Funções inorgânicas"
+      },
+      {
+        "n": 4,
+        "titulo": "Química e meio ambiente"
+      },
+      {
+        "n": 5,
+        "titulo": "O átomo isolado e sua estrutura"
+      },
+      {
+        "n": 6,
+        "titulo": "O átomo ligado: tipos de ligações e substâncias químicas"
+      },
+      {
+        "n": 7,
+        "titulo": "Polaridade e interações entre moléculas"
+      },
+      {
+        "n": 8,
+        "titulo": "Água e soluções aquosas"
+      },
+      {
+        "n": 9,
+        "titulo": "Transformações químicas: um processo dinâmico"
+      },
+      {
+        "n": 10,
+        "titulo": "Transformações de substâncias químicas e energia"
+      },
+      {
+        "n": 11,
+        "titulo": "Estudo dos compostos de carbono"
+      }
+    ],
+    "Física": [
+      {
+        "n": 1,
+        "titulo": "Cinemática."
+      },
+      {
+        "n": 2,
+        "titulo": "Movimento e as leis de Newton."
+      },
+      {
+        "n": 3,
+        "titulo": "Gravitação newtoniana."
+      },
+      {
+        "n": 4,
+        "titulo": "Trabalho e energia."
+      },
+      {
+        "n": 5,
+        "titulo": "Termometria."
+      },
+      {
+        "n": 6,
+        "titulo": "Calorimetria."
+      },
+      {
+        "n": 7,
+        "titulo": "Propagação de calor."
+      },
+      {
+        "n": 8,
+        "titulo": "Gases."
+      },
+      {
+        "n": 9,
+        "titulo": "Termodinâmica."
+      },
+      {
+        "n": 10,
+        "titulo": "Princípios da óptica geométrica"
+      },
+      {
+        "n": 11,
+        "titulo": "Reflexão da luz e formação de imagem."
+      },
+      {
+        "n": 12,
+        "titulo": "Refração luminosa."
+      },
+      {
+        "n": 13,
+        "titulo": "Ondulatória"
+      },
+      {
+        "n": 14,
+        "titulo": "Eletrostática."
+      },
+      {
+        "n": 15,
+        "titulo": "Eletrodinâmica."
+      },
+      {
+        "n": 16,
+        "titulo": "Eletromagnetismo."
+      }
+    ],
+    "Biologia": [
+      {
+        "n": 1,
+        "titulo": "Os seres vivos no ambiente"
+      },
+      {
+        "n": 2,
+        "titulo": "Estudo químico e celular dos seres vivos, reprodução, desenvolvimento e metabolismo energético"
+      },
+      {
+        "n": 3,
+        "titulo": "Níveis de organização dos seres vivos, classificação biológica dos seres vivos"
+      },
+      {
+        "n": 4,
+        "titulo": "Biologia das plantas e dos animais"
+      },
+      {
+        "n": 5,
+        "titulo": "Hereditariedade"
+      },
+      {
+        "n": 6,
+        "titulo": "Origem e evolução da vida"
+      },
+      {
+        "n": 7,
+        "titulo": "Investigação científica"
+      }
+    ],
+    "História": [
+      {
+        "n": 1,
+        "titulo": "Antiguidade Clássica"
+      },
+      {
+        "n": 2,
+        "titulo": "Período Medieval"
+      },
+      {
+        "n": 3,
+        "titulo": "Mundo Moderno"
+      },
+      {
+        "n": 4,
+        "titulo": "Mundo Contemporâneo"
+      },
+      {
+        "n": 5,
+        "titulo": "Estados Unidos e América Latina: diálogos e tensões"
+      },
+      {
+        "n": 6,
+        "titulo": "Os primeiros habitantes"
+      },
+      {
+        "n": 7,
+        "titulo": "Conquista e colonização portuguesa"
+      },
+      {
+        "n": 8,
+        "titulo": "Brasil Imperial"
+      },
+      {
+        "n": 9,
+        "titulo": "Brasil República"
+      }
+    ],
+    "Geografia": [
+      {
+        "n": 1,
+        "titulo": "Os espaços mundial e brasileiro"
+      },
+      {
+        "n": 2,
+        "titulo": "As grandes paisagens naturais da Terra e a questão ambiental"
+      },
+      {
+        "n": 3,
+        "titulo": "A cartografia sistemática, temática e suas tecnologias"
+      }
+    ],
+    "Filosofia": [
+      {
+        "n": 1,
+        "titulo": "Filosofia e visões de mundo"
+      },
+      {
+        "n": 2,
+        "titulo": "Epistemologia"
+      },
+      {
+        "n": 3,
+        "titulo": "Ética"
+      },
+      {
+        "n": 4,
+        "titulo": "Filosofia política"
+      }
+    ],
+    "Sociologia": [
+      {
+        "n": 1,
+        "titulo": "O indivíduo e a sociedade"
+      },
+      {
+        "n": 2,
+        "titulo": "A sociedade e o trabalho"
+      },
+      {
+        "n": 3,
+        "titulo": "A sociedade e a cultura"
+      },
+      {
+        "n": 4,
+        "titulo": "A sociedade e o Estado"
+      },
+      {
+        "n": 5,
+        "titulo": "A sociedade brasileira"
+      }
+    ]
+  }
+}
