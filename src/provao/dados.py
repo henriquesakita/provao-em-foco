@@ -35,19 +35,76 @@ COLUNAS_QUESTOES = [
     "caderno",
 ]
 
-# Questões que dependem de figura, gráfico, mapa ou outro apoio visual do
-# caderno não podem ser respondidas apenas com o texto extraído. O simulado
-# usa esta marca para deixá-las de fora. A lista é deliberadamente ampla:
-# excluir um item a mais é menos prejudicial do que exibir uma questão sem o
-# gráfico necessário. "Figura do Estado" e "figura de linguagem" ficam fora.
+# O texto extraído dos PDFs carrega hífens suaves e caracteres de largura zero
+# no meio das palavras ("f\u00adigura", "t\u00adabela"). Sem limpá-los, a busca
+# por apoio visual falha justamente nos itens que mais precisam ser barrados.
+_MARCAS_INVISIVEIS = re.compile(r"[\u00ad\u200b\u200c\u200d\ufeff\u2060]")
+
+
+def _normalizar_texto(valor: object) -> str:
+    return _MARCAS_INVISIVEIS.sub("", str(valor))
+
+
+# Questões que dependem de figura, gráfico, mapa, tira, tabela ou outro apoio
+# visual do caderno não podem ser respondidas apenas com o texto extraído. O
+# simulado usa esta marca para deixá-las de fora. A lista é deliberadamente
+# ampla: excluir um item a mais é menos prejudicial do que exibir uma questão
+# sem o material necessário. Ficam fora apenas expressões figuradas conhecidas,
+# como "figura de linguagem", "figura do Estado", "quadro urbano",
+# "Convenção-Quadro" e "tabela periódica".
 _APOIO_VISUAL = re.compile(
-    r"\b(?:figura(?:s)?\b(?!\s+(?:do|da|de)\b)"
-    r"|gr[aá]fico(?:s)?|tirinha(?:s)?|charge(?:s)?|cartum(?:s)?|mapa(?:s)?"
-    r"|esquema(?:s)?|diagrama(?:s)?|fotografia(?:s)?|foto(?:s)?"
-    r"|ilustra[cç][aã]o|ilustra[cç][oõ]es|infogr[aá]fico(?:s)?"
-    r"|histograma(?:s)?|maquete(?:s)?|fluxograma(?:s)?)\b"
-    r"|\bimagem\s+(?:a seguir|abaixo|acima|ao lado|mostrada|apresentada"
-    r"|ilustrada|reproduzida)\b",
+    r"\b(?:"
+    r"tiras?|tirinhas?"
+    r"|quadrinhos?"
+    r"|(?<![Cc]onven[cç][aã]o-)quadros?"
+    r"(?!\s+(?:de\s+medalhas|urbano|cl[ií]nico|geral|negro|branco))"
+    r"|cartaz(?:es)?"
+    r"|pinturas?|esculturas?"
+    r"|figuras?"
+    r"(?!\s+(?:de\s+linguagem|da\s+linguagem|de\s+ret[oó]rica"
+    r"|de\s+um\s+Estado|do\s+Estado|p[uú]blica|hist[oó]rica"
+    r"|emblem[áa]tica|representativa|paterna|materna))"
+    r"|gr[áa]ficos?|mapas?|esquemas?|diagramas?"
+    r"|fotografias?|fotos?|ilustra[cç][aã]o|ilustra[cç][oõ]es"
+    r"|infogr[áa]ficos?|histogramas?|maquetes?|fluxogramas?|pictogramas?"
+    r"|charges?|cartu[mn]s?"
+    r"|heredogramas?|cladogramas?"
+    r"|tabelas?(?!\s+peri[oó]dicas?)"
+    r")\b"
+    r"|\bteias?\s+alimentar(?:es)?\b"
+    r"|\b(?:examine|observe|veja|analise|considere)\s+(?:o|os|a|as)?\s*memes?\b"
+    r"|\b(?:o|os)\s+meme(?:s)?\s+(?:apresentado|mostrado|acima|a seguir)\b"
+    r"|\b(?:no|do)\s+meme\b"
+    r"|\b(?:examine|observe|veja|analise|considere)\s+(?:o|os)\s+desenhos?\b"
+    r"|\bdesenhos?\s+(?:a seguir|abaixo|acima|ao lado)\b"
+    r"|\b(?:a|as)\s+imag(?:em|ens)\s+(?:mostra|mostram|retrata|retratam|apresenta"
+    r"|apresentam|representa|representam|ilustra|ilustram|indica|indicam"
+    r"|reproduz|reproduzem|exibe|exibem|destaca|destacam)\b"
+    r"|\b(?:na|nas|nessa|nessas|nesta|nestas|desta|destas)\s+imag(?:em|ens)\b"
+    r"|\b(?:observe|veja|analise|examine|considere)\s+(?:a|as)\s+imag(?:em|ens)\b"
+    r"|\b(?:an[áa]lise|conte[úu]do)\s+d[ao]s?\s+imag(?:em|ens)\b"
+    r"|\bimagem\s+(?:original|inserida|gerada|ampliada|a seguir|abaixo"
+    r"|acima|ao lado|anterior)\b"
+    r"|\bimagem\s+e\s+seu\s+conte[úu]do\b"
+    r"|\ban[áa]lise\s+da\s+obra\b|\bc[ée]dula\s+simb[óo]lica\b"
+    r"|\b(?:representa[cç][aã]o|pictograma|circuito|postagens?)"
+    r"\s+(?:a seguir|abaixo|acima|ao lado)\b"
+    r"|\b(?:conforme|de acordo com)\s+(?:a|o)\s+(?:representa[cç][aã]o"
+    r"|processo representado)\b"
+    r"|\bprocesso representado a seguir\b"
+    r"|\bconforme\s+(?:as|os)\s+equa[cç][oõ]es\s+a seguir\b"
+    r"|\b(?:[áa]rvores?)\s+(?:filogen[ée]ticas?|evolutivas?)\b",
+    re.IGNORECASE,
+)
+
+# As alternativas também podem remeter a um apoio visual ("a foto a seguir foi
+# registrada..."). Aqui a busca é mais estreita para não confundir figuras de
+# linguagem com imagens do caderno.
+_APOIO_VISUAL_ALTERNATIVAS = re.compile(
+    r"\b(?:fotos?|fotografias?|imag(?:em|ens)|figuras?|gr[áa]ficos?|tabelas?"
+    r"|tiras?|quadrinhos?|cartaz(?:es)?|mapas?|esquemas?|diagramas?"
+    r"|charges?|cartu[mn]s?|pictogramas?|circuitos?|postagens?"
+    r"|representa[cç][oõ]es?)\s+(?:a seguir|abaixo|acima|ao lado|anterior)\b",
     re.IGNORECASE,
 )
 
@@ -55,7 +112,11 @@ _APOIO_VISUAL = re.compile(
 def _tem_apoio_visual(enunciado: str, alternativas_texto: str) -> bool:
     if not isinstance(alternativas_texto, str) or not alternativas_texto.strip():
         return True
-    return bool(_APOIO_VISUAL.search(str(enunciado)))
+    if _APOIO_VISUAL.search(_normalizar_texto(enunciado)):
+        return True
+    return bool(
+        _APOIO_VISUAL_ALTERNATIVAS.search(_normalizar_texto(alternativas_texto))
+    )
 
 
 def _chave(q: Questao) -> str:

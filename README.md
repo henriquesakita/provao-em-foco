@@ -26,7 +26,7 @@ O projeto reúne os cadernos de **2023, 2024 e 2025**, os gabaritos oficiais e o
 | Componentes curriculares | 10 |
 | Questões com alternativas em texto | 783 |
 | Questões com alternativas apenas em imagem | 27 |
-| Questões disponíveis no simulado | 585 |
+| Questões disponíveis no simulado | 514 |
 | Ofertas de curso para 2027 | 1.835 |
 | Vagas publicadas por curso | 13.739 |
 | Vagas divulgadas no edital | 15.819 |
@@ -125,7 +125,7 @@ Entre 2023 e 2026, o total cresceu 450 vagas (+2,9%). A UNIVESP respondeu por qu
 
 ### Limitações
 
-- **225 questões** dependem de algum apoio visual: 27 têm alternativas apenas em imagem e as demais citam figuras, gráficos, mapas ou esquemas. Todas permanecem no banco, com a indicação da página do caderno, mas não entram no simulado.
+- **296 questões** dependem de algum apoio visual: 27 têm alternativas apenas em imagem e as demais citam figuras, gráficos, mapas, tiras, quadrinhos, cartazes, tabelas, pictogramas, circuitos, árvores filogenéticas, heredogramas ou esquemas. Todas permanecem no banco, com a indicação da página do caderno, mas não entram no simulado.
 - Em 2024 e 2025, Filosofia e Sociologia se alternam entre as séries; em 2023, as duas aparecem na mesma edição. Por isso a tabela de componentes por edição tem 86 combinações, e não 90.
 - As 2.080 vagas da FATEC para o 2º semestre de 2027 não estão detalhadas por curso no Anexo XII.
 - Localidades da capital paulista (Butantã, Ipiranga, Itaquera e outras) foram agrupadas no município de São Paulo para permitir a contagem por cidade.

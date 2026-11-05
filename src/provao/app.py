@@ -494,8 +494,9 @@ def aba_simulado(q: pd.DataFrame) -> None:
     visuais = int(q["apoio_visual"].sum())
     st.caption(
         f"{fmt_int(len(disponiveis))} questões podem ser usadas no simulado. "
-        f"Ficam de fora {fmt_int(visuais)} itens que dependem de figuras, gráficos, mapas "
-        "ou imagens do caderno — eles continuam no banco de questões, com a página indicada."
+        f"Ficam de fora {fmt_int(visuais)} itens que dependem de figuras, gráficos, "
+        "mapas, tiras, quadrinhos, cartazes, tabelas ou outros recursos visuais do "
+        "caderno — eles continuam no banco de questões, com a página indicada."
     )
 
     with st.form("configuracao_simulado"):
@@ -530,6 +531,7 @@ def aba_simulado(q: pd.DataFrame) -> None:
     selecionadas["ordem"] = selecionadas["chave"].map(ordem)
     selecionadas = selecionadas.sort_values("ordem")
 
+    contextos = _contextos().set_index("chave")
     with st.form("respostas_simulado"):
         respostas: dict[str, str | None] = {}
         for posicao, (_, linha) in enumerate(selecionadas.iterrows(), start=1):
@@ -543,6 +545,12 @@ def aba_simulado(q: pd.DataFrame) -> None:
                 f'<div class="qstem">{_html(linha["enunciado"])}</div>',
                 unsafe_allow_html=True,
             )
+            contexto = ""
+            if linha["chave"] in contextos.index:
+                contexto = str(contextos.loc[linha["chave"], "contexto_pagina"] or "")
+            if contexto.strip():
+                with st.expander("Material de apoio: texto da página do caderno"):
+                    st.text(contexto[:2200])
             opcoes = [f"{letra}) {texto}" for letra, texto in alternativas.items()]
             respostas[linha["chave"]] = st.radio(
                 f"Resposta da questão {posicao}",
@@ -923,10 +931,11 @@ def aba_metodo() -> None:
 
         ### Limitações
 
-        - **225 questões** dependem de algum apoio visual: 27 têm alternativas
-          apenas em imagem e as demais citam figuras, gráficos, mapas ou
-          esquemas. Todas permanecem no banco, com a página do caderno, mas não
-          entram no simulado.
+        - **296 questões** dependem de algum apoio visual: 27 têm alternativas
+          apenas em imagem e as demais citam figuras, gráficos, mapas, tiras,
+          quadrinhos, cartazes, tabelas, pictogramas, circuitos, árvores
+          filogenéticas, heredogramas ou esquemas. Todas permanecem no banco,
+          com a página do caderno, mas não entram no simulado.
         - Em 2024 e 2025, Filosofia e Sociologia se alternam entre as séries;
           em 2023, as duas aparecem na mesma edição. A comparação por disciplina
           considera essa diferença.
