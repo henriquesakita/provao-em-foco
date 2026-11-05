@@ -972,7 +972,6 @@ def aba_metodo() -> None:
 def main() -> None:
     st.set_page_config(
         page_title="Provão em Foco",
-        page_icon="📊",
         layout="wide",
         initial_sidebar_state="collapsed",
     )
