@@ -4,6 +4,8 @@ Painel para consultar o que mais cai no **Provão Paulista Seriado**, comparar a
 
 O projeto reúne os cadernos de **2023, 2024 e 2025**, os gabaritos oficiais e os quadros de vagas do edital de 2026. Todo o conteúdo do painel está em português.
 
+[![Abrir no Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy?repository=henriquesakita/provao-em-foco&branch=main&mainModule=app.py)
+
 ![Panorama do painel](docs/screenshots/panorama.png)
 
 ## O que o painel responde
@@ -174,6 +176,13 @@ data/processed/            bases derivadas, versionadas em gzip
 data/reference/            taxonomia, questões de treino e textos de apoio
 docs/screenshots/          imagens usadas neste README
 ```
+
+## Publicação
+
+- **Repositório:** [github.com/henriquesakita/provao-em-foco](https://github.com/henriquesakita/provao-em-foco)
+- **Aplicativo:** publicado no Streamlit Community Cloud a partir do `app.py` na raiz do repositório.
+
+Para publicar uma cópia, use o botão **Abrir no Streamlit** no topo desta página ou acesse [share.streamlit.io](https://share.streamlit.io), escolha o repositório, a branch `main` e o arquivo `app.py`.
 
 ## Fontes
 
