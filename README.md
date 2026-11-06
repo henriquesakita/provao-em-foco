@@ -1,8 +1,10 @@
 # Provão em Foco
 
-Painel para consultar o que mais cai no **Provão Paulista Seriado**, comparar a frequência dos temas entre edições e séries e ver as vagas oferecidas pelas universidades públicas paulistas para o ingresso em 2027.
+**810 questões analisadas, 13.739 vagas mapeadas e um simulado com 514 itens reais.**
 
-O projeto reúne os cadernos de **2023, 2024 e 2025**, os gabaritos oficiais e os quadros de vagas do edital de 2026. Todo o conteúdo do painel está em português.
+O projeto lê os cadernos oficiais do **Provão Paulista Seriado** de 2023 a 2025, cruza os itens com o gabarito e as vagas das universidades públicas paulistas para 2027 e publica tudo em um painel em português. Inclui banco de questões, análise de temas recorrentes e simulado.
+
+`Python` `pandas` `Streamlit` `Plotly` `pytest`
 
 [![Abrir no Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://provao-em-foco.streamlit.app/)
 
